@@ -1,12 +1,9 @@
-using CbPayTest.Services;
+﻿using CbPayTest.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<CbPayService>();
-
-var port = Environment.GetEnvironmentVariable("PORT") ?? "80";
-app.Urls.Add($"http://0.0.0.0:{port}");
 
 var app = builder.Build();
 
@@ -17,4 +14,11 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Payment}/{action=Index}/{id?}");
 
+// ✅ Render provides PORT, local does not
+var port = Environment.GetEnvironmentVariable("PORT") ?? "10000";
+
+// IMPORTANT: bind AFTER build but BEFORE Run
+app.Urls.Clear();
+app.Urls.Add($"http://0.0.0.0:{port}");
+//http://localhost:5000
 app.Run();
