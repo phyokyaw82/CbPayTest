@@ -1,0 +1,4 @@
+This program will be run on: https://cbpaytest.onrender.com/ (online)
+
+Due to Docker setup this program will not be able to run on locally auto ..
+To be enable to run locally pls type http://localhost:10000 manually ..

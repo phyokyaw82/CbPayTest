@@ -20,5 +20,5 @@ var port = Environment.GetEnvironmentVariable("PORT") ?? "10000";
 // IMPORTANT: bind AFTER build but BEFORE Run
 app.Urls.Clear();
 app.Urls.Add($"http://0.0.0.0:{port}");
-//http://localhost:5000
+//http://localhost:10000
 app.Run();
