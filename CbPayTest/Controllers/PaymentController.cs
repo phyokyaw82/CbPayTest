@@ -47,9 +47,11 @@ public class PaymentController : Controller
             subMerId = _config["CbPay:SubMerId"]
         };
 
-        var generateRefOrder = await _service.RequestPaymentAsync(payload);
+        var response = await _service.RequestPaymentAsync(payload);
 
-        _logger.LogInformation("CBPay generated reference order: {Ref}", generateRefOrder);
+        _logger.LogInformation("CBPay Response Code: {Code}", response.responseCode);
+        _logger.LogInformation("CBPay Response Message: {Msg}", response.responseMessage);
+        _logger.LogInformation("CBPay GenerateRefOrder: {Ref}", response);
 
         var deeplink = "https://cbpay-deeplink-test.netlify.app/";
         return Redirect(deeplink);
