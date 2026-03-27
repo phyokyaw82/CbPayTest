@@ -1,6 +1,19 @@
 ﻿using CbPayTest.Services;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// 🔥 Configure Serilog BEFORE building app
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .WriteTo.Console()
+    .WriteTo.File(
+        path: "Logs/cbpay-log-.txt",
+        rollingInterval: RollingInterval.Day,
+        retainedFileCountLimit: 7)
+    .CreateLogger();
+
+builder.Host.UseSerilog();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<CbPayService>();
