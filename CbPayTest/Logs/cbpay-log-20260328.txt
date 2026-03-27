@@ -1,0 +1,98 @@
+2026-03-28 00:07:27.721 +06:30 [INF] User profile is available. Using 'C:\Users\PKTL\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-28 00:07:28.123 +06:30 [INF] Now listening on: http://0.0.0.0:10000
+2026-03-28 00:07:28.213 +06:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-28 00:07:28.215 +06:30 [INF] Hosting environment: Development
+2026-03-28 00:07:28.217 +06:30 [INF] Content root path: D:\Test\.Net\CbPayTest\CbPayTest
+2026-03-28 00:07:42.951 +06:30 [INF] Request starting HTTP/1.1 GET http://localhost:10000/ - null null
+2026-03-28 00:07:43.166 +06:30 [INF] Executing endpoint 'CbPayTest.Controllers.PaymentController.Index (CbPayTest)'
+2026-03-28 00:07:43.214 +06:30 [INF] Route matched with {action = "Index", controller = "Payment"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CbPayTest.Controllers.PaymentController (CbPayTest).
+2026-03-28 00:07:43.231 +06:30 [INF] Payment Index page loaded
+2026-03-28 00:07:43.248 +06:30 [INF] Executing ViewResult, running view Index.
+2026-03-28 00:07:43.465 +06:30 [INF] Executed ViewResult - view Index executed in 219.4563ms.
+2026-03-28 00:07:43.474 +06:30 [INF] Executed action CbPayTest.Controllers.PaymentController.Index (CbPayTest) in 254.5082ms
+2026-03-28 00:07:43.479 +06:30 [INF] Executed endpoint 'CbPayTest.Controllers.PaymentController.Index (CbPayTest)'
+2026-03-28 00:07:43.497 +06:30 [INF] Request finished HTTP/1.1 GET http://localhost:10000/ - 200 null text/html; charset=utf-8 557.8469ms
+2026-03-28 00:07:43.511 +06:30 [INF] Request starting HTTP/1.1 GET http://localhost:10000/CbPayTest.styles.css?v=2WPlOp5qUAwU6Alr0O2lWGCICU1tXIcJLUaeO2Y5v4I - null null
+2026-03-28 00:07:43.511 +06:30 [INF] Request starting HTTP/1.1 GET http://localhost:10000/css/site.css?v=j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg - null null
+2026-03-28 00:07:43.516 +06:30 [INF] Request starting HTTP/1.1 GET http://localhost:10000/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2026-03-28 00:07:43.543 +06:30 [INF] Sending file. Request path: '/CbPayTest.styles.css'. Physical path: 'D:\Test\.Net\CbPayTest\CbPayTest\obj\Debug\net10.0\scopedcss\bundle\CbPayTest.styles.css'
+2026-03-28 00:07:43.543 +06:30 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'D:\Test\.Net\CbPayTest\CbPayTest\wwwroot\css\site.css'
+2026-03-28 00:07:43.547 +06:30 [INF] Request finished HTTP/1.1 GET http://localhost:10000/CbPayTest.styles.css?v=2WPlOp5qUAwU6Alr0O2lWGCICU1tXIcJLUaeO2Y5v4I - 200 1109 text/css 37.2932ms
+2026-03-28 00:07:43.549 +06:30 [INF] Request finished HTTP/1.1 GET http://localhost:10000/css/site.css?v=j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg - 200 667 text/css 39.182ms
+2026-03-28 00:07:43.555 +06:30 [INF] Request starting HTTP/1.1 GET http://localhost:10000/lib/jquery/dist/jquery.min.js - null null
+2026-03-28 00:07:43.559 +06:30 [INF] Request starting HTTP/1.1 GET http://localhost:10000/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2026-03-28 00:07:43.592 +06:30 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'D:\Test\.Net\CbPayTest\CbPayTest\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2026-03-28 00:07:43.603 +06:30 [INF] Request finished HTTP/1.1 GET http://localhost:10000/lib/bootstrap/dist/css/bootstrap.min.css - 200 232803 text/css 87.0627ms
+2026-03-28 00:07:43.615 +06:30 [INF] Request starting HTTP/1.1 GET http://localhost:10000/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2026-03-28 00:07:43.624 +06:30 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'D:\Test\.Net\CbPayTest\CbPayTest\wwwroot\js\site.js'
+2026-03-28 00:07:43.633 +06:30 [INF] Request finished HTTP/1.1 GET http://localhost:10000/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 200 231 text/javascript 18.2096ms
+2026-03-28 00:07:43.641 +06:30 [INF] Request starting HTTP/1.1 GET http://localhost:10000/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-28 00:07:43.652 +06:30 [INF] Request finished HTTP/1.1 GET http://localhost:10000/_framework/aspnetcore-browser-refresh.js - 200 14923 application/javascript; charset=utf-8 10.9755ms
+2026-03-28 00:07:43.666 +06:30 [INF] Request starting HTTP/1.1 GET http://localhost:10000/_vs/browserLink - null null
+2026-03-28 00:07:43.756 +06:30 [INF] Request finished HTTP/1.1 GET http://localhost:10000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 89.8117ms
+2026-03-28 00:07:43.763 +06:30 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'D:\Test\.Net\CbPayTest\CbPayTest\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2026-03-28 00:07:43.768 +06:30 [INF] Request finished HTTP/1.1 GET http://localhost:10000/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 80721 text/javascript 208.48ms
+2026-03-28 00:07:43.811 +06:30 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'D:\Test\.Net\CbPayTest\CbPayTest\wwwroot\lib\jquery\dist\jquery.min.js'
+2026-03-28 00:07:43.815 +06:30 [INF] Request finished HTTP/1.1 GET http://localhost:10000/lib/jquery/dist/jquery.min.js - 200 87533 text/javascript 259.868ms
+2026-03-28 00:07:43.853 +06:30 [INF] Request starting HTTP/1.1 GET http://localhost:10000/favicon.ico - null null
+2026-03-28 00:07:43.884 +06:30 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'D:\Test\.Net\CbPayTest\CbPayTest\wwwroot\favicon.ico'
+2026-03-28 00:07:43.889 +06:30 [INF] Request finished HTTP/1.1 GET http://localhost:10000/favicon.ico - 200 5430 image/x-icon 36.1376ms
+2026-03-28 00:07:48.421 +06:30 [INF] Request starting HTTP/1.1 GET http://localhost:10000/ - null null
+2026-03-28 00:07:48.438 +06:30 [INF] Executing endpoint 'CbPayTest.Controllers.PaymentController.Index (CbPayTest)'
+2026-03-28 00:07:48.442 +06:30 [INF] Route matched with {action = "Index", controller = "Payment"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CbPayTest.Controllers.PaymentController (CbPayTest).
+2026-03-28 00:07:48.448 +06:30 [INF] Payment Index page loaded
+2026-03-28 00:07:48.451 +06:30 [INF] Executing ViewResult, running view Index.
+2026-03-28 00:07:48.463 +06:30 [INF] Executed ViewResult - view Index executed in 12.5247ms.
+2026-03-28 00:07:48.468 +06:30 [INF] Executed action CbPayTest.Controllers.PaymentController.Index (CbPayTest) in 20.4082ms
+2026-03-28 00:07:48.472 +06:30 [INF] Executed endpoint 'CbPayTest.Controllers.PaymentController.Index (CbPayTest)'
+2026-03-28 00:07:48.478 +06:30 [INF] Request finished HTTP/1.1 GET http://localhost:10000/ - 200 null text/html; charset=utf-8 56.6146ms
+2026-03-28 00:07:48.511 +06:30 [INF] Request starting HTTP/1.1 GET http://localhost:10000/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-28 00:07:48.512 +06:30 [INF] Request starting HTTP/1.1 GET http://localhost:10000/_vs/browserLink - null null
+2026-03-28 00:07:48.517 +06:30 [INF] Request finished HTTP/1.1 GET http://localhost:10000/_framework/aspnetcore-browser-refresh.js - 200 14923 application/javascript; charset=utf-8 6.6935ms
+2026-03-28 00:07:48.544 +06:30 [INF] Request finished HTTP/1.1 GET http://localhost:10000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 32.7257ms
+2026-03-28 00:08:38.462 +06:30 [INF] Request starting HTTP/1.1 GET http://localhost:10000/Payment/Callback - null null
+2026-03-28 00:08:38.472 +06:30 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2026-03-28 00:08:38.480 +06:30 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2026-03-28 00:08:38.484 +06:30 [INF] Request finished HTTP/1.1 GET http://localhost:10000/Payment/Callback - 405 0 null 21.6898ms
+2026-03-28 00:09:35.922 +06:30 [INF] Request starting HTTP/1.1 POST http://localhost:10000/Payment/Callback - null 0
+2026-03-28 00:09:35.932 +06:30 [INF] Executing endpoint 'CbPayTest.Controllers.PaymentController.Callback (CbPayTest)'
+2026-03-28 00:09:35.968 +06:30 [INF] Route matched with {action = "Callback", controller = "Payment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Callback() on controller CbPayTest.Controllers.PaymentController (CbPayTest).
+2026-03-28 00:09:39.694 +06:30 [INF] CBPay Callback received: 
+2026-03-28 00:09:42.350 +06:30 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2026-03-28 00:09:42.353 +06:30 [INF] Executed action CbPayTest.Controllers.PaymentController.Callback (CbPayTest) in 6380.8617ms
+2026-03-28 00:09:42.356 +06:30 [INF] Executed endpoint 'CbPayTest.Controllers.PaymentController.Callback (CbPayTest)'
+2026-03-28 00:09:42.358 +06:30 [INF] Request finished HTTP/1.1 POST http://localhost:10000/Payment/Callback - 200 0 null 6435.4636ms
+2026-03-28 00:16:42.066 +06:30 [INF] User profile is available. Using 'C:\Users\PKTL\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-28 00:16:42.378 +06:30 [INF] Now listening on: http://0.0.0.0:10000
+2026-03-28 00:16:42.447 +06:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-28 00:16:42.451 +06:30 [INF] Hosting environment: Development
+2026-03-28 00:16:42.453 +06:30 [INF] Content root path: D:\Test\.Net\CbPayTest\CbPayTest
+2026-03-28 00:16:49.393 +06:30 [INF] Request starting HTTP/1.1 GET http://localhost:10000/ - null null
+2026-03-28 00:16:49.622 +06:30 [INF] Executing endpoint 'CbPayTest.Controllers.PaymentController.Index (CbPayTest)'
+2026-03-28 00:16:49.670 +06:30 [INF] Route matched with {action = "Index", controller = "Payment"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CbPayTest.Controllers.PaymentController (CbPayTest).
+2026-03-28 00:16:49.687 +06:30 [INF] Payment Index page loaded
+2026-03-28 00:16:49.703 +06:30 [INF] Executing ViewResult, running view Index.
+2026-03-28 00:16:49.892 +06:30 [INF] Executed ViewResult - view Index executed in 190.2551ms.
+2026-03-28 00:16:49.902 +06:30 [INF] Executed action CbPayTest.Controllers.PaymentController.Index (CbPayTest) in 226.3843ms
+2026-03-28 00:16:49.907 +06:30 [INF] Executed endpoint 'CbPayTest.Controllers.PaymentController.Index (CbPayTest)'
+2026-03-28 00:16:49.931 +06:30 [INF] Request finished HTTP/1.1 GET http://localhost:10000/ - 200 null text/html; charset=utf-8 551.7097ms
+2026-03-28 00:16:49.934 +06:30 [INF] Request starting HTTP/1.1 GET http://localhost:10000/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-28 00:16:49.940 +06:30 [INF] Request starting HTTP/1.1 GET http://localhost:10000/_vs/browserLink - null null
+2026-03-28 00:16:49.946 +06:30 [INF] Request finished HTTP/1.1 GET http://localhost:10000/_framework/aspnetcore-browser-refresh.js - 200 14923 application/javascript; charset=utf-8 13.6621ms
+2026-03-28 00:16:50.002 +06:30 [INF] Request finished HTTP/1.1 GET http://localhost:10000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 61.9703ms
+2026-03-28 00:16:51.761 +06:30 [INF] Request starting HTTP/1.1 POST http://localhost:10000/Payment/CreatePayment - application/x-www-form-urlencoded 61
+2026-03-28 00:16:51.778 +06:30 [INF] Executing endpoint 'CbPayTest.Controllers.PaymentController.CreatePayment (CbPayTest)'
+2026-03-28 00:16:51.816 +06:30 [INF] Route matched with {action = "CreatePayment", controller = "Payment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePayment(CbPayTest.Models.PaymentRequest) on controller CbPayTest.Controllers.PaymentController (CbPayTest).
+2026-03-28 00:16:51.871 +06:30 [INF] Creating payment for OrderId: AA1111
+2026-03-28 00:17:03.905 +06:30 [INF] Start processing HTTP request POST https://cbpayuat.cbbank.com.mm:4443/orderpayment-api/v1/request-payment-order.service
+2026-03-28 00:17:03.912 +06:30 [INF] Sending HTTP request POST https://cbpayuat.cbbank.com.mm:4443/orderpayment-api/v1/request-payment-order.service
+2026-03-28 00:17:04.232 +06:30 [INF] Received HTTP response headers after 311.1029ms - 200
+2026-03-28 00:17:04.236 +06:30 [INF] End processing HTTP request after 339.9501ms - 200
+2026-03-28 00:17:13.106 +06:30 [INF] CBPay Response Code: 0000
+2026-03-28 00:17:13.975 +06:30 [INF] CBPay Response Message: Operation Success.
+2026-03-28 00:17:14.777 +06:30 [INF] CBPay GenerateRefOrder: 260328001705R2FF
+2026-03-28 00:17:15.490 +06:30 [INF] CBPay NotifyUrl: https://localhost:10000/Payment/Callback
+2026-03-28 00:17:20.749 +06:30 [INF] Executing RedirectResult, redirecting to https://cbpay-deeplink-test.netlify.app/.
+2026-03-28 00:17:20.754 +06:30 [INF] Executed action CbPayTest.Controllers.PaymentController.CreatePayment (CbPayTest) in 28933.3124ms
+2026-03-28 00:17:20.757 +06:30 [INF] Executed endpoint 'CbPayTest.Controllers.PaymentController.CreatePayment (CbPayTest)'
+2026-03-28 00:17:20.761 +06:30 [INF] Request finished HTTP/1.1 POST http://localhost:10000/Payment/CreatePayment - 302 null null 29000.6843ms
