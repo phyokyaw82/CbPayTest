@@ -42,8 +42,8 @@ public class PaymentController : Controller
         var generateRefOrder = await _service.RequestPaymentAsync(payload);
 
         // STEP 3: Redirect to CBPay Deeplink (IMPORTANT PART)
-        var deeplink = $"cbuat://pay?keyreference={generateRefOrder}";
-
+        // var deeplink = $"cbuat://pay?keyreference={generateRefOrder}";
+        var deeplink = "https://cbpay-deeplink-test.netlify.app/";
         return Redirect(deeplink);
     }
 
