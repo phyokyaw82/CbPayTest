@@ -10,8 +10,7 @@ public class PaymentController : Controller
     private readonly IConfiguration _config;
     private readonly ILogger<PaymentController> _logger;
 
-    public PaymentController(
-        CbPayService service,
+    public PaymentController(CbPayService service,
         IConfiguration config,
         ILogger<PaymentController> logger)
     {
@@ -53,6 +52,15 @@ public class PaymentController : Controller
         _logger.LogInformation("CBPay Response Message: {Msg}", response.responseMessage);
         _logger.LogInformation("CBPay GenerateRefOrder: {Ref}", response.GenerateRefOrder);
         _logger.LogInformation("CBPay NotifyUrl: {Url}", payload.notifyUrl);
+
+        if (!string.Equals(response.responseMessage, "Operation Success.", StringComparison.OrdinalIgnoreCase))
+        {
+            return View("Error", new ErrorViewModel
+            {
+                Message = response.responseMessage,
+                RequestId = HttpContext.TraceIdentifier
+            });
+        }
 
         var deeplink = "https://cbpay-deeplink-test.netlify.app/";
         return Redirect(deeplink);
