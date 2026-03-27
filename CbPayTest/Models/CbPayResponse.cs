@@ -1,9 +1,16 @@
-﻿namespace CbPayTest.Models
+﻿using System.Text.Json.Serialization;
+
+namespace CbPayTest.Models;
+
+public class CbPayResponse
 {
-    public class CbPayResponse
-    {
-        public string generateRefOrder { get; set; }
-        public string responseCode { get; set; }
-        public string responseMessage { get; set; }
-    }
+    [JsonPropertyName("generateRefOrder")]
+    public string GenerateRefOrder { get; set; }
+
+    [JsonPropertyName("code")]
+    public string responseCode { get; set; }
+
+    [JsonPropertyName("msg")]
+    public string responseMessage { get; set; }
 }
+

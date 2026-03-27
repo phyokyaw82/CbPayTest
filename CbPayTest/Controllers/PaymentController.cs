@@ -34,13 +34,20 @@ public class PaymentController : Controller
             orderDetails = req.OrderDetails,
             amount = req.Amount.ToString("0.00"),
             currency = _config["CbPay:Currency"],
-            notifyUrl = $"{Request.Scheme}://{Request.Host}/Payment/Callback",
+            notifyUrl = $"{Request.Scheme}://{Request.Host}/Payment/Callback?orderId={req.OrderId}",
             signature = _config["CbPay:Signature"],
             subMerId = _config["CbPay:SubMerId"]
         };
 
-        var generateRefOrder = await _service.RequestPaymentAsync(payload);
-
+        var cbpayResponse = await _service.RequestPaymentAsync(payload);
+        if (!cbpayResponse.responseMessage.Equals("Operation Success.", StringComparison.OrdinalIgnoreCase))
+        {
+            return View("Error", new ErrorViewModel
+            {
+                RequestId = HttpContext.TraceIdentifier,
+                Message = cbpayResponse.responseMessage
+            });
+        }
         // STEP 3: Redirect to CBPay Deeplink (IMPORTANT PART)
         // var deeplink = $"cbuat://pay?keyreference={generateRefOrder}";
         var deeplink = "https://cbpay-deeplink-test.netlify.app/";
@@ -49,18 +56,15 @@ public class PaymentController : Controller
 
     // Step 4: CBPay backend calls this after success
     [HttpPost]
-    public async Task<IActionResult> Callback([FromBody] object data)
+    public async Task<IActionResult> Callback(string orderId)
     {
         try
         {
-            Console.WriteLine($"CBPay Callback: {data}");
-
             // 1. parse data
             // 2. verify signature (VERY important)
             // 3. update order in DB
             // 4. avoid duplicate processing
-
-            return Ok(); // always return OK if received
+            return View("CbPaySuccess", orderId);
         }
         catch (Exception ex)
         {

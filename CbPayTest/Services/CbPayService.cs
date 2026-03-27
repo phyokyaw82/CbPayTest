@@ -1,4 +1,6 @@
-﻿namespace CbPayTest.Services;
+﻿using CbPayTest.Models;
+
+namespace CbPayTest.Services;
 
 public class CbPayService
 {
@@ -11,14 +13,14 @@ public class CbPayService
         _config = config;
     }
 
-    public async Task<string> RequestPaymentAsync(object payload)
+    public async Task<CbPayResponse> RequestPaymentAsync(object payload)
     {
         var url = _config["CbPay:BaseUrl"] + "request-payment-order.service";
 
         var res = await _http.PostAsJsonAsync(url, payload);
-        var data = await res.Content.ReadFromJsonAsync<Dictionary<string, object>>();
+        var data = await res.Content.ReadFromJsonAsync<CbPayResponse>();
 
-        return data["generateRefOrder"].ToString();
+        return data;
     }
 
     public async Task<string> CheckStatusAsync(object payload)
