@@ -8,16 +8,22 @@ public class PaymentController : Controller
 {
     private readonly CbPayService _service;
     private readonly IConfiguration _config;
+    private readonly ILogger<PaymentController> _logger;
 
-    public PaymentController(CbPayService service, IConfiguration config)
+    public PaymentController(
+        CbPayService service,
+        IConfiguration config,
+        ILogger<PaymentController> logger)
     {
         _service = service;
         _config = config;
+        _logger = logger;
     }
 
     // Step 1: Show form
     public IActionResult Index()
     {
+        _logger.LogInformation("Payment Index page loaded");
         return View();
     }
 
@@ -25,6 +31,8 @@ public class PaymentController : Controller
     [HttpPost]
     public async Task<IActionResult> CreatePayment(PaymentRequest req)
     {
+        _logger.LogInformation("Creating payment for OrderId: {OrderId}", req.OrderId);
+
         var payload = new
         {
             authenToken = _config["CbPay:AuthToken"],
@@ -34,51 +42,36 @@ public class PaymentController : Controller
             orderDetails = req.OrderDetails,
             amount = req.Amount.ToString("0.00"),
             currency = _config["CbPay:Currency"],
-            notifyUrl = $"{Request.Scheme}://{Request.Host}/Payment/Callback?orderId={req.OrderId}",
+            notifyUrl = $"{Request.Scheme}://{Request.Host}/Payment/Callback",
             signature = _config["CbPay:Signature"],
             subMerId = _config["CbPay:SubMerId"]
         };
 
-        var cbpayResponse = await _service.RequestPaymentAsync(payload);
-        if (!cbpayResponse.responseMessage.Equals("Operation Success.", StringComparison.OrdinalIgnoreCase))
-        {
-            return View("Error", new ErrorViewModel
-            {
-                RequestId = HttpContext.TraceIdentifier,
-                Message = cbpayResponse.responseMessage
-            });
-        }
-        // STEP 3: Redirect to CBPay Deeplink (IMPORTANT PART)
-        // var deeplink = $"cbuat://pay?keyreference={generateRefOrder}";
+        var generateRefOrder = await _service.RequestPaymentAsync(payload);
+
+        _logger.LogInformation("CBPay generated reference order: {Ref}", generateRefOrder);
+
         var deeplink = "https://cbpay-deeplink-test.netlify.app/";
         return Redirect(deeplink);
     }
 
-    // Step 4: CBPay backend calls this after success
+    // Step 4: CBPay backend callback
     [HttpPost]
-    public async Task<IActionResult> Callback(string orderId)
+    public async Task<IActionResult> Callback()
     {
-        try
-        {
-            // 1. parse data
-            // 2. verify signature (VERY important)
-            // 3. update order in DB
-            // 4. avoid duplicate processing
-            return View("CbPaySuccess", orderId);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
+        var body = await new StreamReader(Request.Body).ReadToEndAsync();
 
-            // still return OK or CBPay may retry forever
-            return Ok();
-        }
+        _logger.LogInformation("CBPay Callback received: {Body}", body);
+
+        return Ok();
     }
 
     // Step 5: CBPay redirects user back here
     [HttpGet]
     public IActionResult CbPaySuccess(string keyreference)
     {
+        _logger.LogInformation("User redirected from CBPay. KeyReference: {Key}", keyreference);
+
         ViewBag.KeyReference = keyreference;
         return View();
     }
@@ -87,6 +80,9 @@ public class PaymentController : Controller
     [HttpGet]
     public async Task<IActionResult> CheckStatus(string keyreference, string orderId)
     {
+        _logger.LogInformation("Checking payment status. KeyReference: {Key}, OrderId: {OrderId}",
+            keyreference, orderId);
+
         var payload = new
         {
             generateRefOrder = keyreference,
@@ -95,6 +91,9 @@ public class PaymentController : Controller
         };
 
         var result = await _service.CheckStatusAsync(payload);
+
+        _logger.LogInformation("Status API response received");
+
         return Content(result, "application/json");
     }
 }
