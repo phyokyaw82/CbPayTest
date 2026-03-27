@@ -42,7 +42,7 @@ public class PaymentController : Controller
             orderDetails = req.OrderDetails,
             amount = req.Amount.ToString("0.00"),
             currency = _config["CbPay:Currency"],
-            notifyUrl = $"{Request.Scheme}://{Request.Host}/Payment/Callback",
+            notifyUrl = $"https://{Request.Host}/Payment/Callback",
             signature = _config["CbPay:Signature"],
             subMerId = _config["CbPay:SubMerId"]
         };
