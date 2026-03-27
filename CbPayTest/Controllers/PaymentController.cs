@@ -52,8 +52,7 @@ public class PaymentController : Controller
         _logger.LogInformation("CBPay Response Code: {Code}", response.responseCode);
         _logger.LogInformation("CBPay Response Message: {Msg}", response.responseMessage);
         _logger.LogInformation("CBPay GenerateRefOrder: {Ref}", response.GenerateRefOrder);
-     
-
+        _logger.LogInformation("CBPay NotifyUrl: {Url}", payload.notifyUrl);
 
         var deeplink = "https://cbpay-deeplink-test.netlify.app/";
         return Redirect(deeplink);
