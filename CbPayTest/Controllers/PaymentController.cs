@@ -41,7 +41,7 @@ public class PaymentController : Controller
             orderDetails = req.OrderDetails,
             amount = req.Amount.ToString("0.00"),
             currency = _config["CbPay:Currency"],
-            notifyUrl = $"https://{Request.Host}/Payment/Callback",
+            notifyUrl = $"https://{Request.Host}/payment/cbpay/return",
             signature = _config["CbPay:Signature"],
             subMerId = _config["CbPay:SubMerId"]
         };
@@ -68,6 +68,7 @@ public class PaymentController : Controller
 
     // Step 4: CBPay backend callback
     [HttpPost]
+    [Route("payment/cbpay/return")]
     public async Task<IActionResult> Callback()
     {
         var body = await new StreamReader(Request.Body).ReadToEndAsync();
